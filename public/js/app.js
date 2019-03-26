@@ -1904,19 +1904,22 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       newUser: {},
-      users: [{
-        name: 'Bola',
-        email: 'bola@gmail.com',
-        contacted: false
-      }, {
-        name: 'Steve',
-        email: 'steve@gmail.com',
-        contacted: false
-      }, {
-        name: 'John',
-        email: 'john@gmail.com',
-        contacted: false
-      }]
+      users: [// {
+        // 	name: 'Bola',
+        // 	email: 'bola@gmail.com',
+        // 	contacted: false
+        // },
+        // {
+        // 	name: 'Steve',
+        // 	email: 'steve@gmail.com',
+        // 	contacted: false
+        // },
+        // {
+        // 	name: 'John',
+        // 	email: 'john@gmail.com',
+        // 	contacted: false
+        // }
+      ]
     };
   },
   methods: {
@@ -1931,6 +1934,11 @@ __webpack_require__.r(__webpack_exports__);
     deleteUser: function deleteUser(user) {
       this.users.splice(this.users.indexOf(user), 1);
     }
+  },
+  created: function created() {
+    this.$http.get('https://jsonplaceholder.typicode.com/users').then(function (response) {
+      this.users = response.data;
+    });
   }
 });
 

@@ -29,21 +29,21 @@
 			return {
 				newUser: {},
 				users: [
-					{
-						name: 'Bola',
-						email: 'bola@gmail.com',
-						contacted: false
-					},
-					{
-						name: 'Steve',
-						email: 'steve@gmail.com',
-						contacted: false
-					},
-					{
-						name: 'John',
-						email: 'john@gmail.com',
-						contacted: false
-					}
+					// {
+					// 	name: 'Bola',
+					// 	email: 'bola@gmail.com',
+					// 	contacted: false
+					// },
+					// {
+					// 	name: 'Steve',
+					// 	email: 'steve@gmail.com',
+					// 	contacted: false
+					// },
+					// {
+					// 	name: 'John',
+					// 	email: 'john@gmail.com',
+					// 	contacted: false
+					// }
 				]
 			}
 		},
@@ -60,6 +60,12 @@
 				this.users.splice(this.users.indexOf(user), 1); 
 			}
 		},
+		created: function(){
+			 this.$http.get('https://jsonplaceholder.typicode.com/users')
+			 .then(function(response){
+			 	this.users = response.data;
+			 });
+		}
 	}	
 </script>
 
